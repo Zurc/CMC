@@ -54,20 +54,23 @@
         <div class="row">
           <form class="form-horizontal">
             <div class="form-group">
-              <div class="col-sm-4 input-group" style="display: inline-flex">
-                <input type="text" ng-model="enteredColor" class="form-control" id="enterColor">
-                <button type="submit" class="btn btn-default input-group-addon" style="min-width: 80px" ng-click="addName()">Add</button>
-              </div>
-              <div class="col-sm-4 pull-right">
-                <button type="submit" class="btn btn-default" ng-click="light()">10% light</button>
-                <button type="submit" class="btn btn-default" ng-click="dark()">10% dark</button>
-              </div>
-          </div>
-        </form>
-      </div>
 
+              <div class="input-group add-color">
+                <input type="text" ng-model="enteredColor" class="form-control" id="enterColor">
+                <button type="submit" class="btn btn-default input-group-addon" style="min-width: 80px" ng-click="addColor()">Add</button>
+              </div>
+
+              <div class="btns">
+                <button type="submit" class="btn btn-default" ng-click="light()">10% light</button>
+              <button type="submit" class="btn btn-default" ng-click="dark()">10% dark</button>
+              </div>
+
+            </div>
+              
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
 
   </section>
 
@@ -82,11 +85,13 @@
               <th>Mixin color name</th>
               <th>Color</th>
               <th>Hex color</th>
+              <th>RGB color</th>
             </tr>
             <tr ng-repeat="color in colors">
               <td>{{ color.name }}</td>
-              <td style="background-color:#{{ color.color }}"></td>
-              <td>#{{ color.color }}</td>
+              <td style="background-color:#{{ color.hexcolor }}"></td>
+              <td>#{{ color.hexcolor }}</td>
+              <td>{{ color.rgbcolor }}</td>
             </tr>
           </table>
 

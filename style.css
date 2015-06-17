@@ -20,7 +20,7 @@ header {
 }
 
 .banner {
-	min-height: 300px;
+	min-height: 240px;
 	background: url('dark-bg.jpg');
 	background-size: cover;
 }
@@ -29,7 +29,7 @@ header {
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 150px;
+  top: 100px;
   left: 0;
 }
 
@@ -48,6 +48,24 @@ header {
   padding-bottom: 20px;
   font-weight: bold;
 }
+
+.form-group {
+	width: 100%;
+	margin: 0 auto!important;
+}
+
+.add-color {
+	display: inline-flex;
+	position: relative;
+	padding-top: 10px;
+	margin-left: -240px;
+}
+
+.btns {
+	position: relative;
+	margin: -34px 0 0 200px;
+}
+
 h4 {
 	color: #888;
 }
@@ -58,6 +76,10 @@ table th:nth-child(1) {
 
 table th:nth-child(3) {
   width: 90px;
+}
+
+table th:nth-child(4) {
+  width: 130px;
 }
 
 
