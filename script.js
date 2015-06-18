@@ -26,7 +26,7 @@ colorApp.controller('ColorCtrl', function($scope) {
     var g = (bigint >> 8) & 255;
     var b = bigint & 255;
 
-    return "rgb(" + r + "," + g + "," + b + ")";
+    return "rgb(" + r + ", " + g + ", " + b + ")";
   };
 
   // to convert rgb to a hex color
@@ -54,7 +54,7 @@ colorApp.controller('ColorCtrl', function($scope) {
    // BLACK
    if (r==0 && g==0 && b==0) {
     computedK = 1;
-    return "cmyk(0,0,0,1)";
+    return "cmyk(0, 0, 0, 1)";
    }
 
    computedC = 1 - (r/255);
@@ -68,7 +68,7 @@ colorApp.controller('ColorCtrl', function($scope) {
    computedY = Math.round((computedY - minCMY) / (1 - minCMY) * 100) ;
    computedK = Math.round(minCMY * 100);
 
-   return "cmyk(" + computedC + "," + computedM + "," + computedY + "," + computedK + ")";
+   return "cmyk(" + computedC + ", " + computedM + ", " + computedY + ", " + computedK + ")";
   }
 
   $scope.addColor = function() {
