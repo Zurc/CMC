@@ -29,6 +29,15 @@ colorApp.controller('ColorCtrl', function($scope) {
     return "rgb(" + r + "," + g + "," + b + ")";
   };
 
+  // to convert rgb to a hex color
+  function rgbToHex(rgb){
+   rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+   return (rgb && rgb.length === 4) ? "#" +
+    ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+    ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+    ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+  }
+
   //  to transform hex to cmyk color
   $scope.hexToCMYK = function(hexcolor) {
    var computedC = 0;
@@ -63,6 +72,11 @@ colorApp.controller('ColorCtrl', function($scope) {
   }
 
   $scope.addColor = function() {
+
+    if ($scope.enteredColor.substr(0, 1) === 'r') {
+      $scope.enteredColor = (rgbToHex($scope.enteredColor)).slice(1);
+    };
+
     $scope.colors.length = 1;
     $scope.colors[0].name = '@color';
     $scope.colors[0].hexcolor = $scope.enteredColor;
@@ -70,6 +84,7 @@ colorApp.controller('ColorCtrl', function($scope) {
     $scope.colors[0].cmykcolor = $scope.hexToCMYK($scope.colors[0].hexcolor);
     $scope.posperc = 10;
     $scope.negperc = -10;
+    $scope.enteredColor = null;
   };
 
   $scope.posperc = 10;
