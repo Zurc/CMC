@@ -86,12 +86,14 @@
               <th>Color</th>
               <th>Hex color</th>
               <th>RGB color</th>
+              <th>CMYK color</th>
             </tr>
             <tr ng-repeat="color in colors">
               <td>{{ color.name }}</td>
               <td style="background-color:#{{ color.hexcolor }}"></td>
               <td>#{{ color.hexcolor }}</td>
               <td>{{ color.rgbcolor }}</td>
+              <td>{{  color.cmykcolor }}</td>
             </tr>
           </table>
 
