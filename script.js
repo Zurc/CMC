@@ -73,8 +73,14 @@ colorApp.controller('ColorCtrl', function($scope) {
 
   $scope.addColor = function() {
 
+    // if starts with r (rgb color)...
     if ($scope.enteredColor.substr(0, 1) === 'r') {
       $scope.enteredColor = (rgbToHex($scope.enteredColor)).slice(1);
+    };
+
+    // if starts with #
+    if ($scope.enteredColor.substr(0, 1) === '#') {
+      $scope.enteredColor = $scope.enteredColor.slice(1);
     };
 
     $scope.colors.length = 1;
@@ -104,7 +110,7 @@ colorApp.controller('ColorCtrl', function($scope) {
 
   $scope.dark = function(){
     var previous = {
-                'name': '@color' + parseInt($scope.negperc) , 
+                'name': '@color' + parseInt($scope.negperc), 
                 'hexcolor': $scope.shadeHexColor($scope.colors[0].hexcolor, -10),
                 'rgbcolor': $scope.hexToRgb($scope.shadeHexColor($scope.colors[0].hexcolor, -10)),
                 'cmykcolor': $scope.hexToCMYK($scope.shadeHexColor($scope.colors[0].hexcolor, -10))
