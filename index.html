@@ -28,27 +28,8 @@
   <section class="banner"> 
 
     <div class="home-caption">
-      <div class="home-title">An easy way to create your mixins</div>
-      <div class="home-subtitle">Enter a hex value (no # needed). e.g. 123456</div>
-      
-      <!-- <div class="container">
-        <div class="row">
-          <form class="form-horizontal">
-            <div class="form-group">
-              <div class="col-sm-4">
-                  <div class="input-group">
-                      <input type="text" ng-model="enteredColor" class="form-control" id="enterColor">
-                      <span class="input-group-addon" ng-click="addName()">Add</span>
-                  </div>
-                </div>
-            </div>
-          </form>
-          <div class="col-sm-4">
-            <button type="submit" class="btn btn-default" ng-click="light()">10% light</button>
-            <button type="submit" class="btn btn-default" ng-click="dark()">10% dark</button>
-          </div>
-        </div> 
-      </div> -->
+      <div class="home-title">Check your colors for your darken( ) and lighten( ) mixin values!</div>
+      <!-- <div class="home-subtitle">Enter a hex value (no # needed). e.g. 123456</div> -->
 
       <div class="container clearfix">
         <div class="row">
@@ -56,13 +37,13 @@
             <div class="form-group">
 
               <div class="input-group add-color">
-                <input type="text" ng-model="enteredColor" class="form-control" id="enterColor">
+                <input type="text" ng-model="enteredColor" class="form-control" id="enterColor" placeholder="enter hex or rgb value">
                 <button type="submit" class="btn btn-default input-group-addon" style="min-width: 80px" ng-click="addColor()">Add</button>
               </div>
 
               <div class="btns">
-                <button type="submit" class="btn btn-default" ng-click="light()">10% light</button>
-              <button type="submit" class="btn btn-default" ng-click="dark()">10% dark</button>
+                <button type="submit" class="btn btn-default light" ng-click="light()">10% light</button>
+              <button type="submit" class="btn btn-default dark" ng-click="dark()">10% dark</button>
               </div>
 
             </div>

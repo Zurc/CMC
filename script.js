@@ -72,6 +72,8 @@ colorApp.controller('ColorCtrl', function($scope) {
   }
 
   $scope.addColor = function() {
+    $('button.light').attr('disabled', false);
+    $('button.dark').attr('disabled', false);
 
     // if starts with r (rgb color)...
     if ($scope.enteredColor.substr(0, 1) === 'r') {
@@ -104,7 +106,12 @@ colorApp.controller('ColorCtrl', function($scope) {
                 'rgbcolor': $scope.hexToRgb($scope.shadeHexColor($scope.colors[$scope.colors.length-1].hexcolor, 10)),
                 'cmykcolor': $scope.hexToCMYK($scope.shadeHexColor($scope.colors[$scope.colors.length-1].hexcolor, 10))
               };
-    $scope.colors.push(next);
+
+    if (next.hexcolor === 'ffffff') {
+      $scope.colors.push(next);
+      $('button.light').attr('disabled', true);
+    } else {$scope.colors.push(next);}
+    
     $scope.posperc = $scope.posperc + 10;
   };
 
@@ -115,7 +122,11 @@ colorApp.controller('ColorCtrl', function($scope) {
                 'rgbcolor': $scope.hexToRgb($scope.shadeHexColor($scope.colors[0].hexcolor, -10)),
                 'cmykcolor': $scope.hexToCMYK($scope.shadeHexColor($scope.colors[0].hexcolor, -10))
               };
-    $scope.colors.unshift(previous);
+    if (previous.hexcolor === '000000') {
+      $scope.colors.unshift(previous);
+      $('button.dark').attr('disabled', true);
+    } else {$scope.colors.unshift(previous);}
+    
     $scope.negperc -= 10;
   };
 });
